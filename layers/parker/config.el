@@ -14,3 +14,4 @@
           (lambda ()
             (sql-set-product 'postgres)))
 
+(setq org-image-actual-width 50)

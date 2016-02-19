@@ -1,9 +1,13 @@
-;; editable dired
-(global-set-key (kbd "M-a") (lambda () (interactive) (wdired-change-to-wdired-mode)))
+;; newline without entering insert mode
+(define-key evil-normal-state-map (kbd "RET") (lambda () (interactive) (evil-insert-newline-below)))
 
-;; indent whole buffer
-(global-set-key (kbd "M-n") 'iwb)
+;; set prefixes
+(spacemacs/declare-prefix "o" "own")
+(spacemacs/declare-prefix "od" "dired")
+(spacemacs/declare-prefix "os" "screen")
 
-;; easy buffer killing
-(global-unset-key (kbd "M-k"))
-(global-set-key (kbd "M-k") 'kill-this-buffer)
+;; set custom leader bindings
+(spacemacs/set-leader-keys "ode" 'editable-dired)
+(spacemacs/set-leader-keys "bi" 'indent-buffer)
+(spacemacs/set-leader-keys "ose" 'external-screen)
+(spacemacs/set-leader-keys "osl" 'laptop-screen)

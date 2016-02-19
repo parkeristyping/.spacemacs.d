@@ -1,12 +1,14 @@
-;; Make the whole buffer pretty and consistent
-(defun iwb ()
-  "Indent Whole Buffer"
+(defun indent-buffer ()
+  "Indent the whole buffer"
   (interactive)
   (delete-trailing-whitespace)
   (indent-region (point-min) (point-max) nil))
 
-;; Change font size for external screen
-;; Note: C-x C-0 to return to default (i.e. for laptop)
+(defun editable-dired ()
+  "Make dired editable"
+  (interactive)
+  (wdired-change-to-wdired-mode))
+
 (defun external-screen ()
   "Toggle between font sizes for laptop and external monitor"
   (interactive)
