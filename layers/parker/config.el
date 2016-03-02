@@ -14,4 +14,12 @@
           (lambda ()
             (sql-set-product 'postgres)))
 
-(setq org-image-actual-width 50)
+;; Org mode stuff
+(setq org-image-actual-width '(1000))
+(setq org-startup-truncated nil)
+
+;; javascript
+(setq-default js2-basic-offset 2)
+
+;; web mode
+(setq-default web-mode-code-indent-offset 2)
