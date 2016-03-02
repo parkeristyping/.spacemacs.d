@@ -10,5 +10,6 @@
 ;; set custom leader bindings
 (spacemacs/set-leader-keys "ode" 'editable-dired)
 (spacemacs/set-leader-keys "obi" 'indent-buffer)
+(spacemacs/set-leader-keys "obc" 'clean-buffer-list)
 (spacemacs/set-leader-keys "ose" 'external-screen)
 (spacemacs/set-leader-keys "osl" 'laptop-screen)
