@@ -23,3 +23,6 @@
 
 ;; web mode
 (setq-default web-mode-code-indent-offset 2)
+
+;; Specify program for multi-term
+(setq multi-term-program "/bin/zsh")

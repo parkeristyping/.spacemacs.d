@@ -34,12 +34,14 @@ values."
      python
      clojure
      emacs-lisp
+     scheme
+     java
      git
      markdown
      org
      (shell :variables
              shell-default-shell 'eshell
-             shell-default-height 30
+             shell-default-height 40
              shell-default-position 'bottom)
      spell-checking
      syntax-checking
@@ -53,6 +55,7 @@ values."
      tidal
      dired-narrow
      midnight-mode
+     dot-mode
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
