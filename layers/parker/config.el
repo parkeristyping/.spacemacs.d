@@ -26,3 +26,13 @@
 
 ;; Specify program for multi-term
 (setq multi-term-program "/bin/zsh")
+
+;; Point to Eclipse for Java
+(setq eclim-eclipse-dirs "/opt/homebrew-cask/Caskroom/eclipse-java/4.5.2/Eclipse.app/Contents/Eclipse"
+      eclim-executable "/opt/homebrew-cask/Caskroom/eclipse-java/4.5.2/Eclipse.app/Contents/Eclipse/eclim")
+
+;; Org Mode Babel
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((scheme . t)
+   (ruby . t)))

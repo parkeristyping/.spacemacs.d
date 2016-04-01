@@ -1,4 +1,4 @@
-(setq parker-packages
+ (setq parker-packages
       '(
         emms
         (party-mode :location (recipe

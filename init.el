@@ -41,7 +41,7 @@ values."
      org
      (shell :variables
              shell-default-shell 'eshell
-             shell-default-height 40
+             shell-default-height 35
              shell-default-position 'bottom)
      spell-checking
      syntax-checking
@@ -50,6 +50,8 @@ values."
      ;; version-control
 
      ;; custom-defined layers
+     ;; ejc-sql
+     ;; ob-scheme-commenter
      parker
      virtualenvwrapper
      tidal
