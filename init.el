@@ -46,18 +46,16 @@ values."
      spell-checking
      syntax-checking
      haskell
-     ;; better-defaults
-     ;; version-control
 
      ;; custom-defined layers
-     ;; ejc-sql
      ;; ob-scheme-commenter
      parker
      virtualenvwrapper
      tidal
-     dired-narrow
+     ;; dired-narrow
      midnight-mode
-     dot-mode
+     ;; dot-mode
+     ejc-sql
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these

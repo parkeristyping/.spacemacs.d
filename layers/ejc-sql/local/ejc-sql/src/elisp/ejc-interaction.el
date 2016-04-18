@@ -1,6 +1,6 @@
 ;;; ejc-interaction.el -- ejc-sql interact with clojure.
 
-;;; Copyright © 2013-2015 - Kostafey <kostafey@gmail.com>
+;;; Copyright © 2013-2016 - Kostafey <kostafey@gmail.com>
 
 (require 'ejc-lib)
 (require 'ejc-format)
@@ -43,7 +43,8 @@
                      (ejc-db-conn-subprotocol conn-struct)
                      (ejc-db-conn-subname     conn-struct)
                      (ejc-db-conn-user        conn-struct)
-                     (ejc-db-conn-password    conn-struct))
+                     (ejc-db-conn-password    conn-struct)
+                     (ejc-db-conn-database    conn-struct))
      (setq ejc-db-type (ejc-db-conn-subprotocol conn-struct))
      (setq ejc-db-owner (ejc-db-conn-user conn-struct))
      (setq ejc-db-name (ejc-get-db-name (ejc-db-conn-subname conn-struct))))
@@ -86,6 +87,7 @@
 Prepare SQL string, evaluate SQL script and write them to log file"
   (if sql
       (let* ((prepared-sql (ejc-get-sql-from-string sql))
+             (message (ejc-get-connection-type ejc-connection-struct))
              (result (case (ejc-get-connection-type ejc-connection-struct)
                        (:sql (ejc--eval-sql-and-log-print prepared-sql))
                        (:jpa (ejc--eval-jpql prepared-sql))
