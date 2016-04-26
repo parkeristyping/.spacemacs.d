@@ -40,12 +40,13 @@ values."
      markdown
      org
      (shell :variables
-             shell-default-shell 'eshell
-             shell-default-height 35
+             shell-default-shell 'shell
+             shell-default-height 40
              shell-default-position 'bottom)
      spell-checking
      syntax-checking
      haskell
+     restclient
 
      ;; custom-defined layers
      ;; ob-scheme-commenter
@@ -56,6 +57,7 @@ values."
      midnight-mode
      ;; dot-mode
      ejc-sql
+     org-trello
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these

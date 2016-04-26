@@ -36,3 +36,17 @@
  'org-babel-load-languages
  '((scheme . t)
    (ruby . t)))
+
+;; Include underscores in word motions
+;; For python
+(add-hook 'python-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
+;; For ruby
+(add-hook 'ruby-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
+;; For Javascript
+(add-hook 'js2-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
+
+;; Create custom layout
+;;(spacemacs|define-custom-layout "trello"
+;;                                :binding "t"
+;;                                :body
+;;                                (find-file "~/lw/trello/current.org"))

@@ -9,12 +9,12 @@
   (interactive)
   (wdired-change-to-wdired-mode))
 
-(defun external-screen ()
+(defun external-monitor ()
   "Toggle between font sizes for laptop and external monitor"
   (interactive)
-  (set-face-attribute 'default nil :height 150))
+  (set-face-attribute 'default nil :height 180))
 
-(defun laptop-screen ()
+(defun laptop-monitor ()
   "Toggle between font sizes for laptop and external monitor"
   (interactive)
   (set-face-attribute 'default nil :height 120))

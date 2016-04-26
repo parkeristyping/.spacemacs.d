@@ -4,12 +4,13 @@
 ;; set prefixes
 (spacemacs/declare-prefix "o" "own")
 (spacemacs/declare-prefix "od" "dired")
-(spacemacs/declare-prefix "os" "screen")
+(spacemacs/declare-prefix "om" "monitor")
 (spacemacs/declare-prefix "ob" "buffer")
 
 ;; set custom leader bindings
+(spacemacs/set-leader-keys "os" 'shell-pop-persp)
 (spacemacs/set-leader-keys "ode" 'editable-dired)
 (spacemacs/set-leader-keys "obi" 'indent-buffer)
 (spacemacs/set-leader-keys "obc" 'clean-buffer-list)
-(spacemacs/set-leader-keys "ose" 'external-screen)
-(spacemacs/set-leader-keys "osl" 'laptop-screen)
+(spacemacs/set-leader-keys "ome" 'external-monitor)
+(spacemacs/set-leader-keys "oml" 'laptop-monitor)
