@@ -1,25 +1,8 @@
-(setq parker-packages
-      '(emms
-        (party-mode :location (recipe
-                               :fetcher github
-                               :repo "parkeristyping/party-mode"))
-        shell-pop
+(setq my-layouts+-packages
+      '(shell-pop
         persp-mode))
 
-(defun parker/init-emms ()
-  (require 'emms-setup)
-  (emms-all)
-  (emms-default-players)
-
-  (require 'emms-player-mpd)
-  (add-to-list 'emms-player-list 'emms-player-mpd)
-  (setq emms-player-mpd-server-name "localhost")
-  (setq emms-player-mpd-server-port "6600"))
-
-(defun parker/init-party-mode ()
-  (require 'party-mode))
-
-(defun parker/post-init-shell-pop ()
+(defun my-layouts+/post-init-shell-pop ()
   (require 'shell-pop)
 
   (defun shell-pop--switch-to-shell-buffer-by-name (bufname)
@@ -59,10 +42,10 @@
           (shell-pop--cd-to-cwd cwd))
         (run-hooks 'shell-pop-in-after-hook)))))
 
-(defun parker/post-init-persp-mode ()
+(defun my-layouts+/post-init-persp-mode ()
   (defun shell-pop-persp ()
     (interactive)
-    (let ((shell-name (concat "*shell-" (spacemacs//current-layout-name) "*")))
+    (let ((shell-name (concat "*multiterm-" (spacemacs//current-layout-name) "*")))
       (if (string= (buffer-name) shell-name)
           (shell-pop-out)
         (progn

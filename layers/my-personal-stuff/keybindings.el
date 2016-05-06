@@ -6,11 +6,12 @@
 (spacemacs/declare-prefix "od" "dired")
 (spacemacs/declare-prefix "om" "monitor")
 (spacemacs/declare-prefix "ob" "buffer")
+(spacemacs/declare-prefix "of" "flycheck")
 
 ;; set custom leader bindings
-(spacemacs/set-leader-keys "os" 'shell-pop-persp)
 (spacemacs/set-leader-keys "ode" 'editable-dired)
 (spacemacs/set-leader-keys "obi" 'indent-buffer)
 (spacemacs/set-leader-keys "obc" 'clean-buffer-list)
 (spacemacs/set-leader-keys "ome" 'external-monitor)
 (spacemacs/set-leader-keys "oml" 'laptop-monitor)
+(spacemacs/set-leader-keys "oft" 'toggle-flycheck-level)

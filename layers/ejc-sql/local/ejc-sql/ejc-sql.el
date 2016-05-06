@@ -1,5 +1,0 @@
-(load "~/.spacemacs.d/layers/ejc-sql/local/ejc-sql/src/elisp/ejc-lib.el")
-(load "~/.spacemacs.d/layers/ejc-sql/local/ejc-sql/src/elisp/ejc-autocomplete.el")
-(load "~/.spacemacs.d/layers/ejc-sql/local/ejc-sql/src/elisp/ejc-format.el")
-(load "~/.spacemacs.d/layers/ejc-sql/local/ejc-sql/src/elisp/ejc-interaction.el")
-(load "~/.spacemacs.d/layers/ejc-sql/local/ejc-sql/src/elisp/ejc-sql.el")

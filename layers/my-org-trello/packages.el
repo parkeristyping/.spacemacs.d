@@ -1,9 +1,9 @@
-(setq org-trello-packages
+(setq my-org-trello-packages
       '((org-trello :fetcher github
                     :repo "org-trello/org-trello"
                     :files ("org-trello*.el"))))
 
-(defun org-trello/init-org-trello ()
+(defun my-org-trello/init-org-trello ()
   (use-package org-trello)
 
   ;; Override location of .trello

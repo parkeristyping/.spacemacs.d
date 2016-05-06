@@ -23,6 +23,8 @@
 
 ;; web mode
 (setq-default web-mode-code-indent-offset 2)
+(setq web-mode-markup-indent-offset 2)
+(setq web-mode-css-indent-offset 2)
 
 ;; Specify program for multi-term
 (setq multi-term-program "/bin/zsh")
@@ -44,9 +46,3 @@
 (add-hook 'ruby-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
 ;; For Javascript
 (add-hook 'js2-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
-
-;; Create custom layout
-;;(spacemacs|define-custom-layout "trello"
-;;                                :binding "t"
-;;                                :body
-;;                                (find-file "~/lw/trello/current.org"))
