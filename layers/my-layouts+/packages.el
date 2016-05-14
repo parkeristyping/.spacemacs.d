@@ -45,7 +45,7 @@
 (defun my-layouts+/post-init-persp-mode ()
   (defun shell-pop-persp ()
     (interactive)
-    (let ((shell-name (concat "*multiterm-" (spacemacs//current-layout-name) "*")))
+    (let ((shell-name (concat "*shell-" (spacemacs//current-layout-name) "*")))
       (if (string= (buffer-name) shell-name)
           (shell-pop-out)
         (progn
