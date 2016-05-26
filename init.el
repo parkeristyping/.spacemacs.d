@@ -47,7 +47,6 @@ values."
      syntax-checking
      haskell
      restclient
-     themes-megapack
      command-log
 
      ;; my layers
@@ -248,6 +247,8 @@ values."
    ;; delete only whitespace for changed lines or `nil' to disable cleanup.
    ;; (default nil)
    dotspacemacs-whitespace-cleanup 'all
+   ;; I've added this to make sure newlines get added everywhere
+   setq
    ))
 
 (defun dotspacemacs/user-init ()
@@ -255,13 +256,17 @@ values."
 It is called immediately after `dotspacemacs/init'.  You are free to put almost
 any user code here.  The exception is org related code, which should be placed
 in `dotspacemacs/user-config'."
+  (setq require-final-newline 't)
+  (setq mode-require-final-newline 't)
   )
 
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
 This function is called at the very end of Spacemacs initialization after
 layers configuration. You are free to put any user code."
-  (setq powerline-default-separator nil))
+  (setq powerline-default-separator 'nil)
+  (spaceline-compile)
+  )
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
