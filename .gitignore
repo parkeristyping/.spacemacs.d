@@ -1,2 +1,5 @@
 # ignore trello credentials
 .trello
+
+# ignore secrets
+*secrets.el

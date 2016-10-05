@@ -1,11 +1,8 @@
-;; SQL stuff
-(setq sql-postgres-login-params
-      '((user :default "asaper")
-        (server :default "analytics.cfynlok9jygi.us-east-1.redshift.amazonaws.com")
-        (database :default "analytics")
-        (port :default 5439)
-        (password)))
+;; Load secrets, containing:
+;; - SQL database connection details
+(load (concat (file-name-directory load-file-name) "secrets.el"))
 
+;; SQL stuff
 (add-hook 'sql-interactive-mode-hook
           (lambda ()
             (toggle-truncate-lines t)))
@@ -13,6 +10,14 @@
 (add-hook 'sql-mode-hook
           (lambda ()
             (sql-set-product 'postgres)))
+
+(defadvice sql-connect (around sql-connect-around activate)
+  "SSH to linux, then connect"
+  (let ((default-directory
+          (if (string= connection 'lw-qa)
+              "/ssh:mgmt:"
+            default-directory)))
+    ad-do-it))
 
 ;; Org mode stuff
 (setq org-image-actual-width '(1000))
@@ -25,6 +30,7 @@
 (setq-default web-mode-code-indent-offset 2)
 (setq web-mode-markup-indent-offset 2)
 (setq web-mode-css-indent-offset 2)
+(setq css-indent-offset 2)
 
 ;; Specify program for multi-term
 (setq multi-term-program "/bin/zsh")
@@ -37,7 +43,9 @@
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((scheme . t)
-   (ruby . t)))
+   (ruby . t)
+   (python . t)
+   (js . t)))
 
 ;; Include underscores in word motions
 ;; For python
@@ -46,3 +54,7 @@
 (add-hook 'ruby-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
 ;; For Javascript
 (add-hook 'js2-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
+
+;; Open HTML files within hubspot_mirror project in Jinja2 mode
+;; Not working so commented
+;; (add-to-list 'auto-mode-alist '("*/hubspot_mirror/*" . jinja2-mode))

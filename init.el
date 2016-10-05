@@ -48,6 +48,7 @@ values."
      haskell
      restclient
      command-log
+     themes-megapack
 
      ;; my layers
      my-personal-stuff
@@ -57,12 +58,13 @@ values."
      my-ejc-sql
      my-midnight-mode
      my-layouts+
+     my-tablature-mode
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(ag)
+   dotspacemacs-additional-packages '(ag jinja2-mode ssh)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that

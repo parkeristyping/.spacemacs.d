@@ -2,7 +2,8 @@
       '(emms
         (party-mode :location (recipe
                                :fetcher github
-                               :repo "parkeristyping/party-mode"))))
+                               :repo "parkeristyping/party-mode"
+                               :files ("party-mode.el" "music")))))
 
 (defun my-party-mode/init-emms ()
   (require 'emms-setup)
