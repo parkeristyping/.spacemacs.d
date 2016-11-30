@@ -31,6 +31,7 @@
 (setq web-mode-markup-indent-offset 2)
 (setq web-mode-css-indent-offset 2)
 (setq css-indent-offset 2)
+(setq js-indent-level 2)
 
 ;; Specify program for multi-term
 (setq multi-term-program "/bin/zsh")
@@ -58,3 +59,6 @@
 ;; Open HTML files within hubspot_mirror project in Jinja2 mode
 ;; Not working so commented
 ;; (add-to-list 'auto-mode-alist '("*/hubspot_mirror/*" . jinja2-mode))
+
+;; Change anaconda-mode port
+(setq anaconda-mode-port 9001)

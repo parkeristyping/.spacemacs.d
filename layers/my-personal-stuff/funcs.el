@@ -100,3 +100,6 @@
 ;;   "SSH to bastion host, then connect"
 ;;   (let ((default-directory "/ssh:rds-bastion:"))
 ;;     ad-do-it))
+
+;; TODO: Write a function that does what I want with...
+;; git grep <regexp> $(git rev-list --all)

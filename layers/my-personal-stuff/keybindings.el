@@ -1,6 +1,9 @@
 ;; newline without entering insert mode
 (define-key evil-normal-state-map (kbd "RET") (lambda () (interactive) (evil-insert-newline-below)))
 
+;; rebind avy
+(evil-leader/set-key "SPC" 'avy-goto-char)
+
 ;; set prefixes
 (spacemacs/declare-prefix "o" "own")
 (spacemacs/declare-prefix "od" "dired")
@@ -21,6 +24,7 @@
 (spacemacs/set-leader-keys "oop" 'org-present)
 (spacemacs/set-leader-keys "oop" 'org-present)
 (spacemacs/set-leader-keys "odo" 'browse-url-of-dired-file)
+(spacemacs/set-leader-keys "odu" 'dired-up-directory)
 
 ;; windows
 (spacemacs/declare-prefix "wg" "grab")
