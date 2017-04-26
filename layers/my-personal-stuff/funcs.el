@@ -94,25 +94,3 @@
 (defun grab-window-down ()
   (interactive)
   (grab-window-dir 'below))
-
-;; Try to connect through the bastion for mysql. didn't work
-;; (defadvice sql-mysql (around sql-mysql-around activate)
-;;   "SSH to bastion host, then connect"
-;;   (let ((default-directory "/ssh:rds-bastion:"))
-;;     ad-do-it))
-
-;; TODO: Write a function that does what I want with...
-;; git grep <regexp> $(git rev-list --all)
-
-(defun close-tangent-tunnel ()
-  (interactive)
-  (if (get-process "tangent-tunnel")
-      (delete-process "tangent-tunnel")))
-
-(defun tangent-tunnel ()
-  (interactive)
-  (progn
-    (close-tangent-tunnel)
-    (start-process
-     "tangent-tunnel" "tangent-tunnel"
-     "ssh -L 9998:localhost:9998 mgmt ssh -L 9998:localhost:9998 -N tangent")))
