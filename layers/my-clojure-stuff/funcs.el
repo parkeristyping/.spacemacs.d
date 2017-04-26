@@ -22,22 +22,6 @@
         (message "%s" (concat "Could not find corresponding file at " dest-path))
         'nil))))
 
-(defun cider+-recursively-search-expr-meta (expr-meta s)
-  (if (and (not (atom (car expr-meta)))
-           (string= (car (cdr (car expr-meta))) s))
-      (car (cdr (car (cdr (cdr expr-meta)))))
-    (cider+-recursively-search-expr-meta (cdr expr-meta) s)))
-
-(defun cider+-defun-at-point-name (some-defun some-ns)
-  (cider+-recursively-search-expr-meta
-   (car
-    (read-from-string
-     (cider-sync-request:inspect-expr
-      some-defun
-      some-ns
-      (or cider-inspector-page-size 32))))
-   ":name"))
-
 (defun clojure-jump-to-or-from-test-at-point ()
   (interactive)
   (let* ((source-name (replace-regexp-in-string
