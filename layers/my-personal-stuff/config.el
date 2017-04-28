@@ -7,6 +7,56 @@
           (lambda ()
             (toggle-truncate-lines t)))
 
+;; Silence compiler warnings
+(defvar sql-product)
+(defvar sql-prompt-regexp)
+(defvar sql-prompt-cont-regexp)
+
+(add-hook 'sql-interactive-mode-hook 'my-sql-interactive-mode-hook)
+(defun my-sql-interactive-mode-hook ()
+  "Custom interactive SQL mode behaviours. See `sql-interactive-mode-hook'."
+  (when (eq sql-product 'postgres)
+    ;; Allow symbol chars in database names in prompt.
+    (setq sql-prompt-regexp "^\\w*=[#>] ")
+    (setq sql-prompt-cont-regexp "^\\w*[-(][#>] "))
+
+  ;; Deal with inline prompts in query output.
+  ;; Runs after `sql-interactive-remove-continuation-prompt'.
+  (add-hook 'comint-preoutput-filter-functions
+            'my-sql-comint-preoutput-filter :append :local))
+
+(defun my-sql-comint-preoutput-filter (output)
+  "Filter prompts out of SQL query output.
+
+  Runs after `sql-interactive-remove-continuation-prompt' in
+  `comint-preoutput-filter-functions'.
+
+  BROKEN - FIX ME PLEASE"
+
+  ;; If the entire output is simply the main prompt, return that.
+  ;; (i.e. When simply typing RET at the sqli prompt.)
+  (if (string-match (concat "\\`\\(" sql-prompt-regexp "\\)\\'") output)
+      output
+    ;; Otherwise filter all leading prompts from the output.
+    ;; Store the buffer-local prompt patterns before changing buffers.
+    (let ((main-prompt sql-prompt-regexp)
+          (any-prompt comint-prompt-regexp) ;; see `sql-interactive-mode'
+          (prefix-newline nil))
+      (with-temp-buffer
+        (insert output)
+        (goto-char (point-min))
+        (when (looking-at main-prompt)
+          (setq prefix-newline t))
+        (while (looking-at any-prompt)
+          (replace-match ""))
+        ;; Prepend a newline to the output, if necessary.
+        (when prefix-newline
+          (goto-char (point-min))
+          (unless (looking-at "\n")
+            (insert "\n")))
+        ;; Return the filtered output.
+        (buffer-substring-no-properties (point-min) (point-max))))))
+
 (add-hook 'sql-mode-hook
           (lambda ()
             (sql-set-product 'postgres)))
@@ -21,7 +71,7 @@
 
 ;; Org mode stuff
 (setq org-image-actual-width '(1000))
-(setq org-startup-truncated nil)
+;; (setq org-startup-truncated nil)
 
 ;; javascript
 (setq-default js2-basic-offset 2)
@@ -41,12 +91,13 @@
       eclim-executable "/opt/homebrew-cask/Caskroom/eclipse-java/4.5.2/Eclipse.app/Contents/Eclipse/eclim")
 
 ;; Org Mode Babel
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((scheme . t)
-   (ruby . t)
-   (python . t)
-   (js . t)))
+(with-eval-after-load 'org
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((scheme . t)
+     (ruby . t)
+     (python . t)
+     (js . t))))
 
 ;; Include underscores in word motions
 ;; For python

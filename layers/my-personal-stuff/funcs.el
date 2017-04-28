@@ -19,10 +19,10 @@
   (interactive)
   (set-face-attribute 'default nil :height 125))
 
-(defun big-screen ()
+(defun big-text ()
   "Toggle between font sizes for laptop and external monitor"
   (interactive)
-  (set-face-attribute 'default nil :height 200))
+  (set-face-attribute 'default nil :height 240))
 
 (defun toggle-flycheck-level ()
   "Toggle between lighter and higher frequency syntax checking"
