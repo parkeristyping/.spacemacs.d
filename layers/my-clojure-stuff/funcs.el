@@ -35,3 +35,16 @@
         (progn
           (goto-char 0)
           (re-search-forward (concat "def[a-z]* " (regexp-quote target-name)))))))
+
+(defun clojure-indent-defun-at-point ()
+  (interactive)
+  (let ((bounds (cider-defun-at-point 't)))
+    (save-excursion
+      (indent-region (car bounds)
+                     (car (cdr bounds)))
+      (message "Indented defun at point."))))
+
+(defun clojure-indent-region ()
+  (interactive)
+  (save-excursion
+    (indent-region (region-beginning) (region-end))))
