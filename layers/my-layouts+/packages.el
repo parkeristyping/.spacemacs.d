@@ -43,6 +43,8 @@
         (run-hooks 'shell-pop-in-after-hook)))))
 
 (defun my-layouts+/post-init-persp-mode ()
+  (require 'persp-mode)
+
   (defun shell-pop-persp ()
     (interactive)
     (let ((shell-name (concat "*shell-" (spacemacs//current-layout-name) "*")))
