@@ -13,4 +13,6 @@
 
 (defn add-4
   [x]
-  (+ 4 x))
+  (def ex-x x))
+
+(-> ex-x)

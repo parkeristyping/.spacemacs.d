@@ -12,9 +12,9 @@
                :namespace clomacs-fns.core
                :doc "Convert EDN to JSON")
 
-(defun add-4 (n)
-  (interactive "n")
-  (message (format "%s" (add-4-wrapper n))))
+(defun add-4 (beg end)
+  (interactive "r")
+  (message (format "%s" (add-4-wrapper (buffer-substring beg end)))))
 
 (defun edn-region-to-json (beg end)
   (interactive "r")
