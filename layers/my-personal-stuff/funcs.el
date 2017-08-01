@@ -159,3 +159,8 @@ custom output filter.  (See `my-sql-comint-preoutput-filter'.)"
 (defun grab-window-down ()
   (interactive)
   (grab-window-dir 'below))
+
+;; Helm stuff
+(defun my-helm-do-ag-home ()
+  (interactive)
+  (helm-do-ag "/Users/plawrence/gr/"))

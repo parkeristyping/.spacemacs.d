@@ -12,6 +12,7 @@
       (define-clojure-indent
         (-> 0)
         (->> 0)
+        (some-> 0)
         (defroutes 'defun)
         (GET 2)
         (POST 2)

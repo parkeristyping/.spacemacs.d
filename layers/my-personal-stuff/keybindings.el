@@ -54,3 +54,9 @@
 ;; helm rebindings
 (spacemacs/set-leader-keys
   "saa" 'helm-do-ag-this-file)
+
+(spacemacs/set-leader-keys
+  "sah" 'my-helm-do-ag-home)
+
+(spacemacs/set-leader-keys
+  "hf" 'helm-projectile-find-file-in-known-projects)
