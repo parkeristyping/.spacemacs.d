@@ -71,6 +71,7 @@ values."
      my-party-mode
      my-layouts+
      my-personal-stuff
+     my-clomacs-stuff
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -351,6 +352,9 @@ you should place your code here."
   (setq web-mode-css-indent-offset 4)
   (setq css-indent-offset 4)
   (setq js-indent-level 4)
+
+  ;; Helm settings
+  (setq helm-ff-auto-update-initial-value 't)
 
   ;; Specify program for multi-term
   (setq multi-term-program "/bin/sh")

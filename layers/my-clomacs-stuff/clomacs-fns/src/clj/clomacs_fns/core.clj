@@ -1,18 +1,5 @@
-(ns clomacs-fns.core
-  (:require [clojure.data.json :as json]))
+(ns clomacs-fns.core)
 
-(defn to-json
-  [d]
-  (with-out-str
-    (json/pprint d)))
-
-(defn edn->json
-  [s]
-  (let [edn (read-string s)]
-    (to-json edn)))
-
-(defn add-4
-  [x]
-  (def ex-x x))
-
-(-> ex-x)
+(defn hello
+  []
+  "Clojure process started!")

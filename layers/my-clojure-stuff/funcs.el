@@ -48,3 +48,10 @@
   (interactive)
   (save-excursion
     (indent-region (region-beginning) (region-end))))
+
+(defun clojure-insert-last-result ()
+  "TODO: Create this function.
+
+Insert the last minibuffer message starting with \"=> \", starting at point"
+  (interactive)
+  nil)
