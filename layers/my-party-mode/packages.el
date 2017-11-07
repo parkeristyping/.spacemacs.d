@@ -9,6 +9,6 @@
     :config
     (progn
       (setq party-mode-start-music-fn
-            (lambda () (start-process "party-music" "*party-music*" "afplay" "/Users/plawrence/Music/crapface.mp3")))
+            (lambda () (start-process "party-music" "*party-music*" "afplay" party-mode-music-path)))
       (setq party-mode-stop-music-fn
             (lambda () (kill-process "party-music"))))))

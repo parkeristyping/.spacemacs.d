@@ -164,3 +164,35 @@ custom output filter.  (See `my-sql-comint-preoutput-filter'.)"
 (defun my-helm-do-ag-home ()
   (interactive)
   (helm-do-ag "/Users/plawrence/gr/"))
+
+;; Thanks, Alex ter Weele
+(defun wikt (beg end)
+  "Wiktionary lookup"
+  (interactive "r")
+  (let ((word (if (use-region-p)
+                  (buffer-substring-no-properties beg end)
+                (thing-at-point 'word t))))
+    (browse-url
+     (format "https://en.wiktionary.org/wiki/%s" word))))
+
+;; Rotate indent.
+;; Indentation rules are a PITA. This is a function that will rotate
+;; through some common settings and hopefully match whatever file I'm
+;; in to prevent messy commits
+(setq my-web-indent-levels '(4 2))
+(defun rotate-web-indent ()
+  (interactive)
+  (let ((n (car my-web-indent-levels))
+        (updated (-snoc (cdr my-web-indent-levels) (car my-web-indent-levels))))
+
+    (setq my-web-indent-levels updated)
+
+    ;; Set the vars
+    (setq js2-basic-offset n)
+    (setq web-mode-code-indent-offset n)
+    (setq web-mode-markup-indent-offset n)
+    (setq web-mode-css-indent-offset n)
+    (setq css-indent-offset n)
+    (setq js-indent-level n)
+
+    (message (format "updated web indent levels: %s" n))))

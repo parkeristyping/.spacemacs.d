@@ -20,7 +20,8 @@
         (DELETE 2)
         (HEAD 2)
         (ANY 2)
-        (context 2))
+        (context 2)
+        (or 0))
       ;; Count "-" as a word character
       (add-hook 'clojure-mode-hook
                 #'(lambda () (modify-syntax-entry ?- "w"))))))

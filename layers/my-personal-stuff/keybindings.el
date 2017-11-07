@@ -24,6 +24,10 @@
 (spacemacs/set-leader-keys
   "oop" 'org-present
   "oop" 'org-present)
+(spacemacs/declare-prefix "ow" "web")
+(spacemacs/set-leader-keys
+  "oww" 'wikt
+  "owo" 'browse-url-default-macosx-browser)
 
 ;; windows
 (spacemacs/declare-prefix "wg" "grab")
