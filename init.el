@@ -71,7 +71,7 @@ values."
      my-party-mode
      my-layouts+
      my-personal-stuff
-     my-clomacs-stuff
+     ;; my-clomacs-stuff
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
