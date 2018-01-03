@@ -1,6 +1,6 @@
 ;; NOTE: This only works when the file is loaded - re-evaluating here will break things.
 (setq ollies-toolkit-src-dir
-      (concat (file-name-directory load-file-name) "/src"))
+      (concat (file-name-directory load-file-name) "src"))
 
 (setq ollies-toolkit-planck-cmd
       (concat (format "planck -c %s" ollies-toolkit-src-dir)

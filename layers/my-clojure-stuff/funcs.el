@@ -55,3 +55,36 @@
 Insert the last minibuffer message starting with \"=> \", starting at point"
   (interactive)
   nil)
+
+(setq cider-debug-break-toggled nil)
+(defun cider-toggle-debug-break-fn ()
+  (interactive)
+  (if cider-debug-break-toggled
+      (progn
+        (setq cider-debug-break-toggled 't)
+        (cider-enable-debug-break-fn))
+    (progn
+      (setq cider-debug-break-toggled nil)
+      (cider-disable-debug-break-fn))))
+
+(defun cider-enable-debug-break-fn ()
+  (interactive)
+  (let ((current (current-buffer)))
+    (save-excursion
+      (find-file "~/.lein/break_stuff.clj")
+      (beginning-of-buffer)
+      (cider-eval-defun-at-point)
+      (next-line)
+      (cider-debug-defun-at-point)
+      (switch-to-buffer current))))
+
+(defun cider-disable-debug-break-fn ()
+  (interactive)
+  (let ((current (current-buffer)))
+    (save-excursion
+      (find-file "~/.lein/break_stuff.clj")
+      (beginning-of-buffer)
+      (cider-eval-defun-at-point)
+      (next-line)
+      (cider-eval-defun-at-point)
+      (switch-to-buffer current))))

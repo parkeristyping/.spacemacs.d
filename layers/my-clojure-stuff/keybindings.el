@@ -9,4 +9,5 @@
     "gT" 'clojure-jump-to-or-from-test-at-point
     "if" 'clojure-indent-defun-at-point
     "ir" 'clojure-indent-region
-    "sz" 'cider-scratch))
+    "sz" 'cider-scratch
+    "sd" 'cider-toggle-debug-break-fn))
