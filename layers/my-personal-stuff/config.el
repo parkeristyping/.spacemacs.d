@@ -11,16 +11,7 @@
           (lambda ()
             (sql-set-product 'postgres)))
 
-(add-hook 'sql-interactive-mode-hook
-          'my-sql-interactive-mode-hook)
-
-;; Org babel setup
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((scheme . t)
-   (ruby . t)
-   (python . t)
-   (js . t)))
+(add-hook 'sql-interactive-mode-hook 'fix-sql-interactive-prompt)
 
 ;; custom layouts
 (spacemacs|define-custom-layout "@todo"

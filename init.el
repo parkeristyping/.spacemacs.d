@@ -343,6 +343,14 @@ you should place your code here."
   (setq org-startup-truncated nil)
   (setq spaceline-org-clock-p t)
 
+  ;; Org babel setup
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((scheme . t)
+     (ruby . t)
+     (python . t)
+     (js . t)))
+
   ;; Clojure
   (setq clojure-indent-style :always-indent)
 

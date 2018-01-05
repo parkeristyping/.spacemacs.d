@@ -3,7 +3,7 @@
 (defvar sql-prompt-regexp)
 (defvar sql-prompt-cont-regexp)
 
-(defun my-sql-interactive-mode-hook ()
+(defun fix-sql-interactive-prompt ()
   "Custom interactive SQL mode behaviours. See `sql-interactive-mode-hook'."
   (when (eq sql-product 'postgres)
     ;; Allow symbol chars in database names in prompt.
