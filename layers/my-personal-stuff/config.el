@@ -16,4 +16,4 @@
 ;; custom layouts
 (spacemacs|define-custom-layout "@todo"
   :binding "t"
-  :body (find-file "/Users/plawrence/gr/todo/todo.org"))
+  :body (find-file "/Users/plawrence/kin/todo/todo.org"))
